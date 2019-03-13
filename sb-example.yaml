@@ -37,3 +37,16 @@ spec:
     targetPort: 8080
   selector:
     app: sb-app-docker
+---
+apiVersion: v1
+kind: Route
+metadata:
+  name: sb-app-route
+  labels:
+    app: sb-app-route
+spec:
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: sb-app-service
