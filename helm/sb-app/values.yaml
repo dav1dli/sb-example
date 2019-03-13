@@ -1,0 +1,20 @@
+# Default values for springboot app demo.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+name: sb-app
+replicaCount: 1
+application_domain:
+  
+image:
+  name: sb-app-docker
+  repository: 172.30.1.1:5000/sb-example/sb-app-docker
+  tag: latest
+  pullPolicy: IfNotPresent
+service:
+  name: sb-app-service
+  type: ClusterIP
+  externalPort: 8080
+  internalPort: 8080
+ingress:
+  enabled: false
+resources: {}
